@@ -22,3 +22,5 @@ Struktura modula za registraciju pacijent/doktor
 
 Home: - registracija doktor/pacijent
       - prijava doktor/pacijent
+      - u slučaju prijave doktora: izdaj uputnicu, pregledaj nalaz, pregledaj pretrage, izmijeni, moj profil
+      - u slučaju prijave pacijenta: vidi kalendar s zakazanim pretragama, pregledaj nalaz, moj profil
