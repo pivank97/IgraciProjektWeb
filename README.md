@@ -14,7 +14,7 @@ Moduli: - dvije role (pacijent, doktor)
 
 
 Editor: VS Code
-Framework: React
+Framework: React, Bootstrap
 Server: PHP
 Baza podataka: Firebase
 
@@ -22,5 +22,7 @@ Struktura modula za registraciju pacijent/doktor
 
 Home: - registracija doktor/pacijent
       - prijava doktor/pacijent
-      - u slučaju prijave doktora: izdaj uputnicu, pregledaj nalaz, pregledaj pretrage, izmijeni, moj profil
-      - u slučaju prijave pacijenta: vidi kalendar s zakazanim pretragama, pregledaj nalaz, moj profil
+      
+Doktor naslovna: - izdaj uputnicu, pregledaj nalaz, pregledaj pretrage, izmijeni, moj profil, odjava
+Pacijent naslovna: - vidi kalendar s zakazanim pretragama, pregledaj nalaz, moj profil, odjava
+
