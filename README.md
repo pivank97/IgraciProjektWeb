@@ -17,3 +17,8 @@ Editor: VS Code
 Framework: React
 Server: PHP
 Baza podataka: Firebase
+
+Struktura modula za registraciju pacijent/doktor
+
+Home: - registracija doktor/pacijent
+      - prijava doktor/pacijent
