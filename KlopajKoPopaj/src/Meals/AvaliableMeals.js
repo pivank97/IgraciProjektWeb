@@ -32,6 +32,35 @@ const DUMMY_MEALS = [
     name: 'Kebab Fries',
     description: 'Fry & dip pommes frites, hrskava piletina, salata',
     price: 35,
+  },{
+    id: 'm6',
+    name: 'Burger Osijek',
+    description: 'Brioche pecivo, juneća pljeskavica...',
+    price: 42,
+  },
+  {
+    id: 'm7',
+    name: 'Cripy Chicken salata',
+    description: 'Salata s nekoliko vrsta svježeg povrća, hrskava piletina...',
+    price: 40,
+  },
+  {
+    id: 'm8',
+    name: 'Barbecue Burger',
+    description: 'Brioche pecivo, juneća pljeskavica...',
+    price: 42,
+  },
+  {
+    id: 'm9',
+    name: 'Crispy Chicken wrap',
+    description: 'Svježe pečeno domaće tijesto, 100% juneće meso, prilozi...',
+    price: 35,
+  },
+  {
+    id: 'm10',
+    name: 'Kebab Fries',
+    description: 'Fry & dip pommes frites, hrskava piletina, salata',
+    price: 35,
   },
 ];
 

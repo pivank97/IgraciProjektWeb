@@ -2,33 +2,40 @@
 import { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import classes from './Modal.module.css';
-const Backdrop =props=>
-{
-    return (<div className={classes.backdrop} onClick={props.onClose}>
+import { disableBodyScroll } from 'body-scroll-lock';
 
-    </div>)
+
+const Backdrop = props => {
+  
+    
+
+    return (
+        <div
+            className={classes.backdrop} onClick={props.onClose}>
+        </div>)
 }
 
-const ModalOverlay =props=>
-{
-    return(
+const ModalOverlay = props => {
+    
+
+    return (
         <div className={classes.modal}>
             <div className={classes.content}>{props.children}</div>
         </div>
     );
 };
 
-const portalElement=document.getElementById('overlays');
-const Modal=(props)=>
-{
+const portalElement = document.getElementById('overlays');
+const Modal = (props) => {
+
     return (
-    <Fragment>
-        {ReactDOM.createPortal(<Backdrop onClose={props.onClose}/>,portalElement)}   
-        {ReactDOM.createPortal(
-        <ModalOverlay>
-         {props.children}
-        </ModalOverlay>,portalElement)}  
-    </Fragment>
+        <Fragment>
+            {ReactDOM.createPortal(<Backdrop onClose={props.onClose} />, portalElement)}
+            {ReactDOM.createPortal(
+                <ModalOverlay>
+                    {props.children}
+                </ModalOverlay>, portalElement)}
+        </Fragment>
     );
 };
 

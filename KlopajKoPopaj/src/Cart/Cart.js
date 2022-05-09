@@ -13,11 +13,11 @@ const Cart=(props)=>
     const hasItems=cartCtx.items.length >0;
 
     const cartItemRemoveHandler=id=>{
-        
+        cartCtx.removeItem(id);
     };
        
     const cartItemAddHandler=item=>{
-        cartCtx.addItem(item);
+        cartCtx.addItem({...item,amount:1});
     };
 
 
@@ -38,10 +38,18 @@ const Cart=(props)=>
     return(
         <Modal onClose={props.onHideCart}>
              {cartItems}
-        <div className={classes.total}>
-            <span>Ukupno</span>
-            <span>{totalAmount}</span>
-        </div>
+        {
+            hasItems ? <div className={classes.total}>
+                            <span>Ukupno</span>
+                            <span>{totalAmount}</span>
+                        </div>:
+                        <div className={classes.total}>
+                            <span>Košarica je prazna</span>
+                        </div>
+                        
+        }
+        
+        
         <div className={classes.actions}>
             <button className={classes['button--alt']} onClick={props.onHideCart}>Zatvori</button>
             {hasItems && <button className={classes.button}>Naruči</button>}
