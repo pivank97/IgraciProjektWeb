@@ -5,12 +5,22 @@ import MealItem from "./MealItem";
 
 const AvaliableMeals = () => {
   const [avaliableMealsList, setAvaliableMealsList] = useState([]);
+  const [isLoading,setIsLoading]=useState(true);
+  const [httpError,setHttpError]=useState();
+
 
   useEffect(() => {
     const fetchAvaliableMeals = async () => {
 
+      setIsLoading(true);
       const response =  await fetch('https://klopaj-ko-popaj-default-rtdb.europe-west1.firebasedatabase.app/Avaliable%20Meals.json');
       const responseData =  await response.json();
+
+      if(!response.ok)
+      {
+        throw new Error('Something went wrong!');
+      }
+
 
       const loadedMeals = [];
 
@@ -23,12 +33,35 @@ const AvaliableMeals = () => {
         });
       }
       setAvaliableMealsList(loadedMeals);
+      setIsLoading(false);
     };
 
-    fetchAvaliableMeals();
+    
+       fetchAvaliableMeals().catch((error)=>
+       {
+         setIsLoading(false);
+      setHttpError(error.message);
+       });
+
   }, [])
 
+  if (isLoading)
+  {
+    return (
+      <section className={classes.MealsLoading}>
+        <p>LOADING...</p>
+      </section> 
+      );
+  }
 
+  if(httpError)
+  {
+    return(
+      <section className={classes.MealsError}>
+        <p>{httpError}</p>
+      </section>
+    )
+  }
 
   const mealList = avaliableMealsList.map((meal) =>
     <MealItem
@@ -42,7 +75,6 @@ const AvaliableMeals = () => {
   return (
     <section className={classes.meals}>
       <Card><ul>{mealList}</ul></Card>
-
     </section>
   )
 };
