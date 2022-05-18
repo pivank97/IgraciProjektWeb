@@ -59,7 +59,7 @@ const Checkout = (props) => {
     const telNumberControlCLasses=`${classes.control} ${formInputValidity.telNumber ?'':classes.invalid}`;
 
     return (
-        <form onSubmit={confirmHandler}>
+        <form className={classes.form} onSubmit={confirmHandler}>
             <div className={nameControlCLasses}>
                 <label htmlFor="name">Vaše ime</label>
                 <input type='text' id='name' ref={nameInputRef} />
@@ -82,7 +82,7 @@ const Checkout = (props) => {
             </div>
             <div className={classes.actions}>
                 <button type='button' onClick={props.onCancel}>Odustani</button>
-                <button>Potvrdi</button>
+                <button className={classes.submit}>Potvrdi</button>
             </div>
 
 
