@@ -51,7 +51,7 @@ const AvaliableRestaurants =()=>
         if (isLoading)
         {
           return (
-            <section className={classes.MealsLoading}>
+            <section className={classes.RestaurantsLoading}>
               <p>LOADING...</p>
             </section> 
             );
@@ -60,7 +60,7 @@ const AvaliableRestaurants =()=>
         if(httpError)
         {
           return(
-            <section className={classes.MealsError}>
+            <section className={classes.RestaurantsError}>
               <p>{httpError}</p>
             </section>
           )

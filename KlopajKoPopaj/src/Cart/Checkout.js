@@ -14,11 +14,13 @@ const Checkout = (props) => {
         city:true ,
         telNumber:true
     });
+    const [formIsValid,setFormIsValid]=useState(true);
 
     const nameInputRef = useRef();
     const streetAddressInputRef = useRef();
     const cityInputRef = useRef();
     const telNumberInputRef = useRef();
+    
 
     const confirmHandler = (event) => {
         event.preventDefault();
@@ -40,17 +42,24 @@ const Checkout = (props) => {
             telNumber:enteredTelNumberIsValid
         });
 
-        const formIsValid = enteredNameIsValid && 
-                            enteredStreetAddressIsValid && 
-                            enteredCityIsValid && 
-                            enteredTelNumberIsValid;
+         const formValidity = enteredNameIsValid && 
+                        enteredStreetAddressIsValid && 
+                        enteredCityIsValid && 
+                        enteredTelNumberIsValid;
 
-        console.log(formInputValidity.telNumber);
-        
-        if(!formIsValid)
+        if(formValidity)
         {
+            setFormIsValid(true);
+        }
+        
+        if(!formValidity)
+        {
+            setFormIsValid(false);
             return;
         }
+
+
+
     };
 
     const nameControlCLasses=`${classes.control} ${formInputValidity.name ?'':classes.invalid}`;
@@ -82,7 +91,7 @@ const Checkout = (props) => {
             </div>
             <div className={classes.actions}>
                 <button type='button' onClick={props.onCancel}>Odustani</button>
-                <button className={classes.submit}>Potvrdi</button>
+                {formIsValid && <button className={classes.submit} onClick={props.confirmHandler}>Potvrdi</button>}
             </div>
 
 

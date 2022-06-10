@@ -27,16 +27,8 @@ const Cart = (props) => {
         setIsCheckout(true);
     };
 
-    const submitOrderHandler = async (userData) => {
-        setIsSubmitting(true);
-        await fetch('https://klopaj-ko-popaj-default-rtdb.europe-west1.firebasedatabase.app/orders.json', {
-            method: 'POST',
-            body: JSON.stringify({
-                user: userData,
-                orderedItems: cartCtx.items,
-            }),
-        });
-        setIsSubmitting(false);
+    const submitOrderHandler = () => {
+       
         setDidSubmit(true);
         cartCtx.clearCart();
     };
@@ -76,7 +68,7 @@ const Cart = (props) => {
                 <span>{totalAmount}</span>
             </div>
             {isCheckout && (
-                <Checkout onConfirm={submitOrderHandler} onCancel={props.onHideCart} />
+                <Checkout confirmHandler={submitOrderHandler} onCancel={props.onHideCart} />
             )}
             {!isCheckout && modalButtonActions}
         </React.Fragment>
