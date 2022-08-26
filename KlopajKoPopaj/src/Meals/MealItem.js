@@ -3,7 +3,6 @@ import MealItemForm from './MealItemForm';
 import { useContext } from 'react';
 import CartContext from '../store/cart-context';
 
-
 const MealItem = (props) => {
     const price = `${props.price.toFixed(2)}Kn`;
 
@@ -26,7 +25,7 @@ const MealItem = (props) => {
                 </div>
                 <div className={classes.price}>
                     {price}    
-                </div> 
+                </div>
             </div>
             <MealItemForm onAddToCart={addToCartHandler}/>
             

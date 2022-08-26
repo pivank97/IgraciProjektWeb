@@ -57,9 +57,6 @@ const Checkout = (props) => {
             setFormIsValid(false);
             return;
         }
-
-
-
     };
 
     const nameControlCLasses=`${classes.control} ${formInputValidity.name ?'':classes.invalid}`;
@@ -93,13 +90,7 @@ const Checkout = (props) => {
                 <button type='button' onClick={props.onCancel}>Odustani</button>
                 {formIsValid && <button className={classes.submit} onClick={props.confirmHandler}>Potvrdi</button>}
             </div>
-
-
         </form>
     )
-
 }
-
-
-
 export default Checkout;

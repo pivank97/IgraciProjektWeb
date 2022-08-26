@@ -16,7 +16,7 @@ const AvaliableRestaurants =()=>
           const fetchRestaurants = async () => {
       
             setIsLoading(true);
-            const response =  await fetch('https://klopaj-ko-popaj-restaurants-default-rtdb.europe-west1.firebasedatabase.app/avaliableRestaurants.json');
+            const response =  await fetch('https://klopaj-ko-popaj-default-rtdb.europe-west1.firebasedatabase.app/avaliableRestaurants.json');
             const responseData =  await response.json();
       
             if(!response.ok)
@@ -78,7 +78,7 @@ const AvaliableRestaurants =()=>
         return (
           <section className={classes.restaurants}>
             <Card>
-              <h2>Restorani</h2>
+              <h1>Restorani</h1>
               <ul>{restaurantList}</ul>
             </Card>
           </section>

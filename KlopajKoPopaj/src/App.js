@@ -5,6 +5,7 @@ import Meals from './Meals/Meals';
 import Cart from './Cart/Cart';
 import CartProvider from './store/CartProvider';
 import AvaliableRestaurants from './Restaurants/AvaliableRestaurants';
+import RestaurantsPage from './Restaurants/RestaurantsPage';
 
 
 
@@ -27,8 +28,9 @@ const hideCartHandler=(event)=>
     <CartProvider>
       {cartVisibility && <Cart onHideCart={hideCartHandler}/>}
       <Header onShowCart={showCartHandler}/>
-      <Meals/>
-      <AvaliableRestaurants/>
+      {/* <Meals/>
+      <AvaliableRestaurants/> */}
+      <RestaurantsPage/>
     </CartProvider>
   );
 }
