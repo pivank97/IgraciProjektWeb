@@ -1,13 +1,15 @@
 import React, {useState} from 'react';
 import  './App.module.css';
 import Header from './Header/Header';
-import Meals from './Meals/Meals';
 import Cart from './Cart/Cart';
 import CartProvider from './store/CartProvider';
-import AvaliableRestaurants from './Restaurants/AvaliableRestaurants';
-import RestaurantsPage from './Restaurants/RestaurantsPage';
-
-
+import FabriquePage from './Restaurants/FabriquePage';
+import HokusOkusPage from './Restaurants/HokusOkusPage';
+import RullaPage from './Restaurants/RullaPage';
+import Meals from './Meals/Meals'
+import AvaliableRestaurants from './Restaurants/AvaliableRestaurants'
+import { BrowserRouter, Link, Outlet, Route, Routes } from "react-router-dom";
+import IndexContent from './Helpers/IndexContent';
 
 function App() {
   const [cartVisibility,setCartVisibility]=useState(false);
@@ -24,14 +26,17 @@ const hideCartHandler=(event)=>
 
 
   return (
-    
-    <CartProvider>
-      {cartVisibility && <Cart onHideCart={hideCartHandler}/>}
-      <Header onShowCart={showCartHandler}/>
-      {/* <Meals/>
-      <AvaliableRestaurants/> */}
-      <RestaurantsPage/>
-    </CartProvider>
+      <CartProvider>
+        {cartVisibility && <Cart onHideCart={hideCartHandler}/>}
+        <Header onShowCart={showCartHandler}/>
+          <Routes>
+            <Route path="/" element={ <IndexContent/>}/>
+            <Route path="/Restaurants/Fabrique" element={ <FabriquePage/>}/>
+            <Route path="/Restaurants/Rulla" element={ <RullaPage/>}/>
+            <Route path="/Restaurants/HokusOkus" element={ <HokusOkusPage/>}/>
+          </Routes>
+        <Outlet/>
+      </CartProvider>
   );
 }
 

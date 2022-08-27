@@ -3,7 +3,7 @@ import classes from "./AvaliableMeals.module.css"
 import Card from "../UI/Card"
 import MealItem from "./MealItem";
 
-const AvaliableMeals = () => {
+const AvaliableMeals = (props) => {
   const [avaliableMealsList, setAvaliableMealsList] = useState([]);
   const [isLoading,setIsLoading]=useState(true);
   const [httpError,setHttpError]=useState();
@@ -24,7 +24,9 @@ const AvaliableMeals = () => {
 
       const loadedMeals = [];
 
-      for (const key in responseData) {
+      if(props.rest){
+        for (const key in responseData) {
+          if(props.rest===responseData[key].rest)
         loadedMeals.push({
           id: key,
           name: responseData[key].name,
@@ -32,6 +34,17 @@ const AvaliableMeals = () => {
           price: responseData[key].price
         });
       }
+      }else {
+        for (const key in responseData) {
+        loadedMeals.push({
+          id: key,
+          name: responseData[key].name,
+          description: responseData[key].description,
+          price: responseData[key].price
+        });
+      }
+    }
+      
       setAvaliableMealsList(loadedMeals);
       setIsLoading(false);
     };
