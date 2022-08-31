@@ -1,0 +1,64 @@
+.restaurants {
+    text-align: center;
+    max-width: 50rem;
+    width: 90%;
+    margin: auto;
+    margin-top: -15rem;
+    position: relative;
+    padding: 1rem;
+    animation: restaurants-appear 1s ease-out forwards;
+}
+
+.restaurants h1 {
+    font-size: xx-large;
+}
+
+.restaurants p {
+    font-style: italic;
+    font-size: 1.2rem;
+}
+
+.restaurants h3 {
+    color: blue;
+}
+
+.restaurants a:link {
+    color: blue;
+}
+
+.restaurants a:visited {
+    color: rgb(44, 73, 238);
+}
+
+.restaurants a:hover {
+    color: rgb(27, 27, 126);
+}
+
+.returnBtn {
+    text-align: center;
+    max-width: 30rem;
+    width: 90%;
+    margin: auto;
+    position: relative;
+    padding: 1rem;
+    animation: restaurants-appear 1s ease-out forwards;
+}
+
+.returnBtn a {
+    text-decoration: none;
+}
+
+.returnBtn h3 :hover {
+    color: rgb(27, 27, 126);
+}
+
+@keyframes restaurants-appear {
+    from {
+        opacity: 0;
+        transform: translateY(3rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
