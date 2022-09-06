@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import classes from './RestaurantPages.module.css'
 import AvaliableMeals from "../Meals/AvaliableMeals";
 import Card from "../UI/Card"
@@ -21,6 +22,13 @@ const FabriquePage = () =>
         </Card>
       </section>
       <AvaliableMeals rest={restPage}/>
+      <section className={classes.returnBtn}>
+        <Card>
+          <h3>
+            <Link to="/">Povratak</Link>
+          </h3>
+        </Card>
+      </section>
     </React.Fragment>
   );
 }
