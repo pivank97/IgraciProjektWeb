@@ -8,18 +8,6 @@ import AvaliableRestaurants from '../Restaurants/AvaliableRestaurants'
 
 
 function IndexContent() {
-  const [cartVisibility,setCartVisibility]=useState(false);
-  
-const showCartHandler=(event)=>
-{
-  setCartVisibility(true); 
-}
-
-const hideCartHandler=(event)=>
-{
-  setCartVisibility(false); 
-}
-
 
   return (
     <React.Fragment>
